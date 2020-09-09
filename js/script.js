@@ -2,6 +2,7 @@ let platBtn = $('#playBtn')//кнопка Играть!
 let moreBtn = $('#moreBtn')//кнопка Еще
 let enoughBtn = $('#enoughBtn')//Кнопка хватит
 let newGame = $('#newGame')
+
 let playerCards = $('.your_cards_block .card')//блок с картами игрока
 let dealerCards = $('.dealer_cards_block .card')//блок с картами диллера
 let dealerSum = 0 // сумма очков диллера
@@ -49,6 +50,8 @@ changeObjSrc = () =>{//меняет значение свойства src для
 }
 moreBtn.prop('disabled',true)
 enoughBtn.prop('disabled',true)
+
+
 platBtn.click( ()=>{
 
     platBtn.prop('disabled',true)
@@ -61,8 +64,7 @@ platBtn.click( ()=>{
     setInterval(() =>{
         $('.dealer_cards_block .card:first').css({'background':'none'}).append(cards[2].src)
         $('.dealer_cards_block .card:eq(1)').css({'background':'none'}).append(cards[3].src)
-        moreBtn.prop('disabled',false)
-        enoughBtn.prop('disabled',false)
+
     },2000)
 
     $.each(playerCards,(index) =>{
@@ -76,21 +78,27 @@ platBtn.click( ()=>{
         }
     })
 
+    setTimeout(() =>{
+        moreBtn.prop('disabled',false)
+        enoughBtn.prop('disabled',false)
+    },2200)
+
     if (playerSum === 21){
         setTimeout(() =>{
             alert('Игрок победил, у него 21!')
-
-        },4000)
+            newGame.css('display','block')
+        },2100)
     }
     if (dealerSum === 21){
         setTimeout(() =>{
             alert('Диллер победил, у него 21!')
-        },4000)
+            newGame.css('display','block')
+        },2100)
 
     }
+
 })
 
 moreBtn.click(function () {
-    console.log('Сумма игрока - ' + playerSum)
-    console.log('Сумма диллера - ' + dealerSum)
+
 })
