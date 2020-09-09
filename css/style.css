@@ -31,7 +31,7 @@ img
  }
 .card {
     width: 80px;
-    height: 118px;
+    height: 117px;
     background-color: lightgreen;
     margin-top: 15px;
 }
@@ -56,9 +56,18 @@ img
     cursor: pointer;
 }
 
+#newGame{
+    display: none;
+}
+
 @media only screen and (max-width: 502px) {
     .game_field{
         width:320px;
+    }
+    .card{
+
+        width: 60px;
+        height: 87px;
     }
 
 }
